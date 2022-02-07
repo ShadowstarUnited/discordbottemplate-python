@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 import random
 import asyncio
 import datetime
@@ -12,37 +12,37 @@ class help(commands.Cog, name='help'):
     @commands.guild_only()
     async def help(self, ctx, option=None):
         if option == None:
-            page1 = discord.Embed (
+            page1 = nextcord.Embed (
                 title = "__<bot name> Help menu__",
                 description = f"To use this help menu, click on the ▶ emoji to advance to the next page, and click ◀ to go back a page! Click ❌ to close the help menu entirely.\n\n```You can type '{ctx.prefix}help [command name]' for more info about a command.```",
                 colour = 0x0394fc
             )
-            page1.set_thumbnail(url = 'thumbnail image link')
+            page1.set_thumbnail(url = 'https://i.imgur.com/yVgfgwa.png')
             page1.set_footer(text="footer text")
-            page2 = discord.Embed (
+            page2 = nextcord.Embed (
                 title = "**__Commands Page 1__**",
                 description = f"This is where you will list your bot's commands.",
                 colour = 0x0394fc
             )
             page2.set_footer(text='Page 1')
-            page3 = discord.Embed (
+            page3 = nextcord.Embed (
                 title = "**__Commands Page 2__**",
                 description = f"This is where you will list more of your bot's commands.",
                 colour = 0x0394fc
             )
             page3.set_footer(text='Page 2')
-            page4 = discord.Embed (
+            page4 = nextcord.Embed (
                 title = "**__Commands Page 3__**",
                 description = f"This is where you will list even more of your bot's commands.",
                 colour = 0x0394fc
             )
             page4.set_footer(text='Page 3')
-            page5 = discord.Embed (
+            page5 = nextcord.Embed (
                 title = "Page 4",
                 description = f"This bot was created and developed by **You#0000**. Please report any issues, or provide feedback to them.",
                 colour = 0x0394fc
             )
-            page5.set_image(url = 'image link')
+            page5.set_image(url = 'https://i.imgur.com/yVgfgwa.png')
             page5.set_footer(text='footer text')
         
             pages = [page1, page2, page3, page4, page5]
@@ -129,7 +129,7 @@ class help(commands.Cog, name='help'):
             else:
                 usage = f"{cmd} {command.signature}"
 
-            embedCommand = discord.Embed(
+            embedCommand = nextcord.Embed(
                 colour=0x2f3136,
                 title=f"Help • `{cmd}`",
                 description=desc
@@ -146,21 +146,21 @@ class help(commands.Cog, name='help'):
 
     @help.error
     async def help_error(self, ctx, error):
-        botB = ctx.guild.get_member(your bot user id)
+        botB = ctx.guild.get_member(Your Bot UserID)
 
         esend = ctx.send
 
         if isinstance(error, commands.CommandInvokeError):
-            eBadArgument = discord.Embed(
+            eBadArgument = nextcord.Embed(
                 colour=0xb3261e,
                 title="__Help Error__",
                 description=f"**This command doesn't exist.**\nCheck `{ctx.prefix}help` to see what commands are available.",
                 timestamp=datetime.datetime.utcnow()
             )
 
-            eBadArgument.set_author(name=f"{ctx.author}", icon_url=ctx.author.avatar_url)
-            eBadArgument.set_footer(text=f"{botB.name}", icon_url=botB.avatar_url)
-            eBadArgument.set_thumbnail(url="thumbnail image link")
+            eBadArgument.set_author(name=f"{ctx.author}", icon_url=ctx.author.avatar.url)
+            eBadArgument.set_footer(text=f"{botB.name}", icon_url=botB.avatar.url)
+            eBadArgument.set_thumbnail(url="https://i.imgur.com/q6u27Ne.png")
 
             await esend(embed=eBadArgument)
 
