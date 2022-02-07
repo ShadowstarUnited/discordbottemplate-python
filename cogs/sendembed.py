@@ -1,12 +1,12 @@
 import typing
 import inspect
-import discord
+import nextcord
 import asyncio
-from discord.ext import commands
-from discord.ext.commands.errors import BadColourArgument
+from nextcord.ext import commands
+from nextcord.ext.commands.errors import BadColourArgument
 
 
-class Colours(discord.Color):
+class Colours(nextcord.Color):
     @classmethod
     def black(cls):
         return cls(0x000000)
@@ -83,7 +83,7 @@ class sendembed(commands.Cog, name='sendembed'):
     @commands.bot_has_permissions(embed_links=True)
     @commands.has_guild_permissions(manage_guild=True)
     @commands.command(name="embed", aliases=["sendembed"], description="Sends an embedded message. You do not need to specify a channel or color, but you can if you want to! You can type the name of a color or use a hex color code, but make sure it has an 0x before the hex. You can even have it send an image; simply attach the image with the message. Check out the usage below.")
-    async def embed(self, ctx: commands.Context, channel: typing.Optional[discord.TextChannel], color: typing.Optional[Converter], *, text: str = None):
+    async def embed(self, ctx: commands.Context, channel: typing.Optional[nextcord.TextChannel], color: typing.Optional[Converter], *, text: str = None):
 
         def m_check(m):
             if m.author == ctx.author and m.channel == ctx.channel:
@@ -96,7 +96,7 @@ class sendembed(commands.Cog, name='sendembed'):
         if not color:
             color = Colours.orange()
         if not text:
-            embed1 = discord.Embed(
+            embed1 = nextcord.Embed(
                 title="Interactive Embed Setup",
                 description=f"What is the title of the embed?\nTo have an empty title, reply with `skip`!",
                 color=Colours.silver()
@@ -109,7 +109,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
             except Exception as e:
                 if isinstance(e, asyncio.TimeoutError):
-                    error = discord.Embed(
+                    error = nextcord.Embed(
                         description=f"Embed Setup Cancelled! You didn't reply in time!",
                         color=Colours.wine_red()
                     )
@@ -125,7 +125,7 @@ class sendembed(commands.Cog, name='sendembed'):
                     title_content = um1.content
                 await um1.delete()
 
-                embed2 = discord.Embed(
+                embed2 = nextcord.Embed(
                     title="Interactive Embed Setup",
                     description=f"What is the description of the embed?\nTo have an empty description, reply with `skip`!",
                     color=Colours.silver()
@@ -138,7 +138,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
                 except Exception as e:
                     if isinstance(e, asyncio.TimeoutError):
-                        error = discord.Embed(
+                        error = nextcord.Embed(
                             description=f"Embed Setup Cancelled! You didn't reply in time!",
                             color=Colours.wine_red()
                         )
@@ -154,7 +154,7 @@ class sendembed(commands.Cog, name='sendembed'):
                         desc_content = um2.content
                     await um2.delete()
 
-                    embed3 = discord.Embed(
+                    embed3 = nextcord.Embed(
                         title="Interactive Embed Setup",
                         description=f"What is the footer of the embed?\nTo have an empty footer, reply with `skip`!",
                         color=Colours.silver()
@@ -167,7 +167,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
                     except Exception as e:
                         if isinstance(e, asyncio.TimeoutError):
-                            error = discord.Embed(
+                            error = nextcord.Embed(
                                 description=f"Embed Setup Cancelled! You didn't reply in time!",
                                 color=Colours.wine_red()
                             )
@@ -183,7 +183,7 @@ class sendembed(commands.Cog, name='sendembed'):
                             footer_content = um3.content
                         await um3.delete()
 
-                        embed4 = discord.Embed(
+                        embed4 = nextcord.Embed(
                             title="Interactive Embed Setup",
                             description=f"What is the color of the embed? **Please reply in hex code format! Example: 0x7eebeb**\nTo have the color be orange, reply with `skip`!",
                             color=Colours.silver()
@@ -196,7 +196,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
                         except Exception as e:
                             if isinstance(e, asyncio.TimeoutError):
-                                error = discord.Embed(
+                                error = nextcord.Embed(
                                     description=f"Embed Setup Cancelled! You didn't reply in time!",
                                     color=Colours.wine_red()
                                 )
@@ -212,7 +212,7 @@ class sendembed(commands.Cog, name='sendembed'):
                                 color_content = int(f"{um4.content}", 0)
                             await um4.delete()
 
-                            embed5 = discord.Embed(
+                            embed5 = nextcord.Embed(
                                 title="Interactive Embed Setup",
                                 description=f"What is the url of the image on the embed?\nTo have no image, reply with `skip`!",
                                 color=Colours.silver()
@@ -225,7 +225,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
                             except Exception as e:
                                 if isinstance(e, asyncio.TimeoutError):
-                                    error = discord.Embed(
+                                    error = nextcord.Embed(
                                         description=f"Embed Setup Cancelled! You didn't reply in time!",
                                         color=Colours.wine_red()
                                     )
@@ -241,7 +241,7 @@ class sendembed(commands.Cog, name='sendembed'):
                                     image_content = um5.content
                                 await um5.delete()
 
-                                embed6 = discord.Embed(
+                                embed6 = nextcord.Embed(
                                     title="Interactive Embed Setup",
                                     description=f"What is the id of the channel you want to send the embed in?\nTo have the embed in this channel, reply with `skip`!",
                                     color=Colours.silver()
@@ -254,7 +254,7 @@ class sendembed(commands.Cog, name='sendembed'):
 
                                 except Exception as e:
                                     if isinstance(e, asyncio.TimeoutError):
-                                        error = discord.Embed(
+                                        error = nextcord.Embed(
                                             description=f"Embed Setup Cancelled! You didn't reply in time!",
                                             color=Colours.wine_red()
                                         )
@@ -271,7 +271,7 @@ class sendembed(commands.Cog, name='sendembed'):
                                         channel_id = ctx.guild.get_channel(cnl_id)
                                     await um6.delete()
 
-                                    sendembed = discord.Embed(
+                                    sendembed = nextcord.Embed(
                                         title=title_content,
                                         description=desc_content,
                                         color=color_content
@@ -285,7 +285,7 @@ class sendembed(commands.Cog, name='sendembed'):
                                     await channel_id.send(embed=sendembed)
 
         elif text:
-            embed = discord.Embed(description=text, color=color)
+            embed = nextcord.Embed(description=text, color=color)
             content = None
             if ctx.message.attachments:
                 content = await ctx.message.attachments[0].to_file()
