@@ -1,13 +1,13 @@
-import discord
+import nextcord
 import os
-from discord.ext import commands
+from nextcord.ext import commands
 import random
 import traceback
 import sys
-from discord.ext import tasks
+from nextcord.ext import tasks
 from itertools import cycle
 
-bot = commands.AutoShardedBot(command_prefix=['bot prefix'], help_command=None, case_insensitive=True, owner_ids=[your user id])
+bot = commands.AutoShardedBot(command_prefix=['!'], intents=nextcord.Intents.all(), help_command=None, case_insensitive=True, owner_ids=[Your UserID])
 bot.remove_command('help')
 
 path = os.getcwd()
@@ -26,6 +26,6 @@ async def on_ready():
     for cog in cogs:
         bot.load_extension(cog)
     print(f'\nLogged in as: {bot.user.name}')
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"{members} members"))
+    await bot.change_presence(activity=nextcord.Activity(type=nextcord.ActivityType.watching, name=f"{members} members"))
 
-bot.run('bot token')
+bot.run('Your Bot Token')
