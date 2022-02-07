@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 import random
 import asyncio
 import math
@@ -19,9 +19,9 @@ class debug(commands.Cog, name='debug'):
     async def invite(self, ctx):
         await ctx.send(f"You can invite me here: <Paste your OAuth2 Link here>")
 
-    @commands.command(description="Sends a Discord Server Invite to the bot's Support Server.")
+    @commands.command(description="Sends a nextcord Server Invite to the bot's Support Server.")
     async def support(self, ctx):
-        await ctx.send(f"You can join my support server here: <Paste your discord.gg link here>")
+        await ctx.send(f"You can join my support server here: <Paste your nextcord.gg link here>")
 
     @commands.command(description="Displays our Privacy Policy.")
     async def privacy(self, ctx):
@@ -29,7 +29,7 @@ class debug(commands.Cog, name='debug'):
 
     @commands.command(description='Displays detailed info about the bot')
     async def botinfo(self, ctx):
-        calc = discord.Embed(description="Gathering Information... Please wait.")
+        calc = nextcord.Embed(description="Gathering Information... Please wait.")
         msg = await ctx.send(embed=calc)
 
         # Ping #
@@ -44,9 +44,9 @@ class debug(commands.Cog, name='debug'):
         for guild in self.bot.guilds:
             members += guild.member_count - 1
 
-        system = f"Library: Discord.Py Version {discord.__version__}\n Language: Python Version {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}\nOperating System: {sys.platform}"
+        system = f"Library: nextcord Version {nextcord.__version__}\n Language: Python Version {sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]}\nOperating System: {sys.platform}"
 
-        done = discord.Embed(
+        done = nextcord.Embed(
             title="{} Information".format(self.bot.user),
             description=f"<Put the description of your bot here>",
             color=0x0f60bd
