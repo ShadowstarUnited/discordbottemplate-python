@@ -8,7 +8,7 @@ Though, *some* programmer knowledge is necessary, as well as an ambition to lear
 ## How to Use:
 
 - Download Python from here: [https://www.python.org/]
-- After Python is correctly installed, open your terminal/cmd of choice and type `py -3 -m pip install -U discord.py`.
+- After Python is correctly installed, open your terminal/cmd of choice and type `py -3 -m pip install -U nextcord`.
 - You'll also need to type `pip install -U jishaku` to install Jishaku (which this bot uses for debugging).
 - Clone this repo and fill in the blanks. You will get errors if you do not replace every marked command.
 - After everything is edited to your liking, you can run `bot.py`. For Linux, the command is `python3 bot.py`.
