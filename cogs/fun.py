@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 import random
 import asyncio
 import math
@@ -32,7 +32,7 @@ class fun(commands.Cog, name='fun'):
                 return await ctx.send(f"⚠ The command errored. You either set a number below 1, or you didn't set a maximum number! Example of usage: {ctx.prefix}roll 500 1000")
             else:
                 generated_num = random.randint(min,max)
-        await ctx.reply(f"Rolled **{generated_num}** out of **{max if max else 100}**.", mention_author=False, allowed_mentions=discord.AllowedMentions(everyone=False))
+        await ctx.reply(f"Rolled **{generated_num}** out of **{max if max else 100}**.", mention_author=False, allowed_mentions=nextcord.AllowedMentions(everyone=False))
     
     @commands.command(name= '8ball', aliases=["ask"], description="Ask a question and get a yes/no response!")
     async def _8ball(self, ctx, *, question = None):
@@ -66,13 +66,13 @@ class fun(commands.Cog, name='fun'):
 
             answer = random.choice(responses)
 
-            embed = discord.Embed(
+            embed = nextcord.Embed(
                 description=f"You Asked: **{question}**\n" +
                 f"My Answer is: **{answer}**",
                 color=0xb36720
             )
 
-            await ctx.reply(embed=embed, mention_author=False, allowed_mentions=discord.AllowedMentions(everyone=False))
+            await ctx.reply(embed=embed, mention_author=False, allowed_mentions=nextcord.AllowedMentions(everyone=False))
     
     @commands.command(description="Have the bot rate whatever you want!")
     async def rate(self, ctx, *, thing = None):
@@ -82,7 +82,7 @@ class fun(commands.Cog, name='fun'):
             await ctx.reply(f"Since you didn't define anything to rate, I will rate you instead! Hmm... I rate you a **{round(rate_amount, 2)}** out of **100**! (But you'll always be a qt to me owo <3)", mention_author=False)
         elif thing is not None:
             rate_amount = random.uniform(0.0, 100.0)
-            await ctx.reply(f"I'd rate '**{thing}**' a solid **{round(rate_amount, 2)}** out of **100**!", allowed_mentions=discord.AllowedMentions(everyone=False, roles=False, users=True), mention_author=False)
+            await ctx.reply(f"I'd rate '**{thing}**' a solid **{round(rate_amount, 2)}** out of **100**!", allowed_mentions=nextcord.AllowedMentions(everyone=False, roles=False, users=True), mention_author=False)
 
     @commands.command(name= 'coinflip', aliases=["flip"], description="Flips a coin that either results in heads or tails.")
     async def coinflip(self, ctx):
