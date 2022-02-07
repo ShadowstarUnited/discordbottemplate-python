@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 import random
 import asyncio
 import math
@@ -12,10 +12,10 @@ class Owner(commands.Cog, name='owner'):
 
     @commands.command(description="Sends a message to the designated channel.", usage="[channel] <message>")
     @commands.is_owner()
-    async def echo(self, ctx, channel: Optional[discord.TextChannel], *, content: str):
+    async def echo(self, ctx, channel: Optional[nextcord.TextChannel], *, content: str):
         channel = channel or ctx.channel
         await ctx.message.delete()
-        await channel.send(content, allowed_mentions=discord.AllowedMentions(everyone=False))
+        await channel.send(content, allowed_mentions=nextcord.AllowedMentions(everyone=False))
 
     @commands.command(aliases=['makeinvite'], description="A developer only command that creates an invite to a server when a Guild ID is provided.")
     @commands.is_owner()
@@ -23,10 +23,10 @@ class Owner(commands.Cog, name='owner'):
         guild = self.bot.get_guild(ID)
         try:
             invite = (await guild.invites())[0]
-        except (IndexError, discord.Forbidden):
+        except (IndexError, nextcord.Forbidden):
             try:
                 invite = await guild.text_channels[0].create_invite(max_age=120)
-            except discord.Forbidden:
+            except nextcord.Forbidden:
                 return await ctx.send("Unable to create invite")
         return await ctx.send(f"Here is the invite: https://discord.gg/{invite.code}")
 
@@ -88,10 +88,10 @@ class Owner(commands.Cog, name='owner'):
 
             reasons = f"1. Your server violates Discord's Terms of Service, or includes content that does.\n2. You or your server's members were spamming commands which obviously do not exist, filling up our error logging.\n3. You or your server's members were misusing or abusing the bot.\n4. The bot was used to send inappropriate messages via a command sent from you or your admin(s).\n5. The Developer deemed your server unfit for the bot to be in, and felt uncomfortable.\n6. A Discord related issue.\n7. Custom Reason"
 
-            reasonembed = discord.Embed(
+            reasonembed = nextcord.Embed(
               title=f"Reason for Leaving {guild.name}?",
               description=reasons,
-              color=discord.Color.blurple()
+              color=nextcord.Color.blurple()
             )
             botmsg = await ctx.send(embed=reasonembed)
             await botmsg.add_reaction(one)
@@ -120,12 +120,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"Your server violates Discord's Terms of Service, or includes content that does."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -134,12 +134,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"You or your server's members were spamming commands which obviously do not exist, filling up our error logging."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -148,12 +148,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"You or your server's members were misusing or abusing the bot."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -162,12 +162,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"The bot was used to send inappropriate messages via a command sent from you or your admin(s)."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -176,12 +176,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"The Developer deemed your server unfit for the bot to be in, and felt uncomfortable."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -190,12 +190,12 @@ class Owner(commands.Cog, name='owner'):
                     reason = f"A Discord related issue."
 
                     try:
-                        owner_embed = discord.Embed(
+                        owner_embed = nextcord.Embed(
                             title=f"I left {guild.name}!",
                             description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                         )
                         await owner.send(embed=owner_embed)
-                    except discord.Forbidden:
+                    except nextcord.Forbidden:
                       await ctx.send("I was unable to send a message to that server's owner, however...")
                     await guild.leave()
                     await ctx.send("✅ Successfully left that server!")
@@ -218,28 +218,28 @@ class Owner(commands.Cog, name='owner'):
                         await reasonm.delete()
 
                         try:
-                            owner_embed = discord.Embed(
+                            owner_embed = nextcord.Embed(
                                 title=f"I left {guild.name}!",
                                 description=f"My developer has requested I leave your server: `{guild.name}` for the following reason:\n```{reason}```"
                             )
                             await owner.send(embed=owner_embed)
-                        except discord.Forbidden:
+                        except nextcord.Forbidden:
                           await ctx.send("I was unable to send a message to that server's owner, however...")
                         await guild.leave()
                         await ctx.send("✅ Successfully left that server!")
 
     async def _send_guilds(self, ctx, guilds, title):
         if len(guilds) == 0:
-            await ctx.send(embed=discord.Embed(description="No such guild was found."))
+            await ctx.send(embed=nextcord.Embed(description="No such guild was found."))
             return
 
         all_pages = []
 
         for chunk in [guilds[i : i + 20] for i in range(0, len(guilds), 20)]:
-            page = discord.Embed(title=title)
+            page = nextcord.Embed(title=title)
 
             for guild in chunk:
-                if page.description == discord.Embed.Empty:
+                if page.description == nextcord.Embed.Empty:
                     page.description = guild
                 else:
                     page.description += f"\n{guild}"
@@ -284,7 +284,7 @@ class Owner(commands.Cog, name='owner'):
 
             channels = f"Text Channels: {len(guild.text_channels)} | Categories: {len(guild.categories)} | Voice Channels: {len(guild.voice_channels)}"
 
-            embed = discord.Embed(
+            embed = nextcord.Embed(
                 title=f"{guild.name} Information",
                 color=0x7eebeb
             )
