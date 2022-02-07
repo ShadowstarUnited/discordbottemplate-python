@@ -5,8 +5,8 @@ import os
 from subprocess import Popen
 import subprocess
 
-from discord.ext import commands
-from discord import utils
+from nextcord.ext import commands
+from nextcord import utils
 
 class Reload(commands.Cog):
     def __init__(self, bot):
