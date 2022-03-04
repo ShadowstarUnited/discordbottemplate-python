@@ -36,7 +36,7 @@ class Error(commands.Cog):
         uid = ctx.author.id
         avatar = ctx.author.avatar.url
 
-        if str(ctx.command.name).casefold() in ["roll", "help", "embed", "unban", "ban"]:
+        if str(ctx.command.name).casefold() in ["roll", "help", "embed", "unban", "ban"]: #basically any time you want to have this error handler ignore a command, just add the name of the command here so you can have a unique handler for each command. These command names are just examples.
             return
 
         # Error Handlers #
