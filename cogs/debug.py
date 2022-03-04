@@ -19,9 +19,9 @@ class debug(commands.Cog, name='debug'):
     async def invite(self, ctx):
         await ctx.send(f"You can invite me here: <Paste your OAuth2 Link here>")
 
-    @commands.command(description="Sends a nextcord Server Invite to the bot's Support Server.")
+    @commands.command(description="Sends a discord Server Invite to the bot's Support Server.")
     async def support(self, ctx):
-        await ctx.send(f"You can join my support server here: <Paste your nextcord.gg link here>")
+        await ctx.send(f"You can join my support server here: <Paste your discord.gg link here>")
 
     @commands.command(description="Displays our Privacy Policy.")
     async def privacy(self, ctx):
