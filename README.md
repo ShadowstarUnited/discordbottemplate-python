@@ -23,7 +23,6 @@ This bot features "cogs", which are separate .py files that contain commands.
 | ------ | ------ |
 | `Application.py` | This cog supports Application Commands such as slash commands, app menu for user and messages! |
 | `Debug.py` | These are the basic debug commands like `[p]ping` and `[p]botinfo`. |
-| `Error.py` | This is an advanced Error Handler. Most botlists will require a decent Error Handler like this one. |
 | `Fun.py` | Basic fun commands like `[p]roll` and `[p]8ball`. |
 | `Help.py` | Advanced Help Menu with pagination! Have different pages for different categories of commands. |
 | `Moderation.py` | Basic moderation commands like `[p]ban`. |
