@@ -288,7 +288,7 @@ class Owner(commands.Cog, name='owner'):
                 title=f"{guild.name} Information",
                 color=0x7eebeb
             )
-            embed.set_footer(text=f"Guilds requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+            embed.set_footer(text=f"Guilds requested by {ctx.author}", icon_url=ctx.author.avatar.url)
             embed.add_field(name="Name / ID", value=f"{guild.name} (`{guild.id}`)", inline=True)
             embed.add_field(name="Server Owner", value=f"{owner} (`{owner.id}`)", inline=True)
             embed.add_field(name="Region", value=f"{guild.region}", inline=True)
