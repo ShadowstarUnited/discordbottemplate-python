@@ -9,6 +9,7 @@ Though, *some* programmer knowledge is necessary, as well as an ambition to lear
 - Please note that if you decide to just "Download as .ZIP" instead of using a git clone client/command, you will have an issue with the cog file pathing.
 The folder structure needs to be like this: Bot Folder > Code
 Having another folder inside will break it. I know I suck at explaining, so here's some pics:
+
 ![1](https://is-dumb.today/bCye5xVMF.png)
 ![2](https://is-dumb.today/LBj0wNPSWo.png)
 
