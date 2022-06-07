@@ -18,7 +18,7 @@ Having another folder inside will break it. I know I suck at explaining, so here
 
 - Download Python from here: [https://www.python.org/]
 - After Python is correctly installed, open your terminal/cmd of choice and type `py -3 -m pip install -U nextcord`.
-- You'll also need to type `pip install -U jishaku` to install Jishaku (which this bot uses for debugging).
+- You'll also need to type `pip install -U jishaku==2.4.0` to install Jishaku (which this bot uses for debugging).
 - You'll also need to type `pip install aiohttp` to install aiohttp which this bot uses.
 - You'll also need to type `python -m pip install requests` for error handling.
 - Clone this repo and fill in the blanks. You will get errors if you do not replace every marked command.
