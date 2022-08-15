@@ -4,7 +4,6 @@ import random
 import asyncio
 import math
 from typing import Optional
-import sys
 
 class fun(commands.Cog, name='fun'):
     def __init__(self, bot):
