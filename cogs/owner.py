@@ -4,7 +4,6 @@ import random
 import asyncio
 import math
 from typing import Optional
-import sys
 
 class Owner(commands.Cog, name='owner'):
     def __init__(self, bot):
