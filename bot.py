@@ -3,7 +3,6 @@ import os
 from nextcord.ext import commands
 import random
 import traceback
-import sys
 from nextcord.ext import tasks
 from itertools import cycle
 
