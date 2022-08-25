@@ -19,7 +19,7 @@ class help(commands.Cog, name="help"):
         x = await PrefixCol.find_one({"guild": f"{ctx.guild.id}"})
 
         if x is None:
-            prefix = "d!"
+            prefix = "!" # change to whatever prefix your bot uses
 
         elif x is not None:
             prefix = x["prefix"]
