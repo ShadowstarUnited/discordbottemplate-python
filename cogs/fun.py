@@ -4,12 +4,14 @@ import random
 import asyncio
 import math
 from typing import Optional
+from checks import rank
 
 class fun(commands.Cog, name='fun'):
     def __init__(self, bot):
         self.bot = bot
     
     @commands.command(description="Rolls a random number between 1 and 100. Check out the usage below to choose a custom dice.", ignore_extra=False)
+    @rank("blacklist")
     async def roll(self, ctx, min : int = None, max : int = None):
         if min and not max:
             return await ctx.send(f"⚠ That's not how you use this command! You must put two numbers. Example of usage: {ctx.prefix}roll 500 1000")
@@ -34,6 +36,7 @@ class fun(commands.Cog, name='fun'):
         await ctx.reply(f"Rolled **{generated_num}** out of **{max if max else 100}**.", mention_author=False, allowed_mentions=nextcord.AllowedMentions(everyone=False))
     
     @commands.command(name= '8ball', aliases=["ask"], description="Ask a question and get a yes/no response!")
+    @rank("blacklist")
     async def _8ball(self, ctx, *, question = None):
 
         if question is None:
@@ -74,6 +77,7 @@ class fun(commands.Cog, name='fun'):
             await ctx.reply(embed=embed, mention_author=False, allowed_mentions=nextcord.AllowedMentions(everyone=False))
     
     @commands.command(description="Have the bot rate whatever you want!")
+    @rank("blacklist")
     async def rate(self, ctx, *, thing = None):
         """ Rates what you desire """
         if thing is None:
@@ -84,6 +88,7 @@ class fun(commands.Cog, name='fun'):
             await ctx.reply(f"I'd rate '**{thing}**' a solid **{round(rate_amount, 2)}** out of **100**!", allowed_mentions=nextcord.AllowedMentions(everyone=False, roles=False, users=True), mention_author=False)
 
     @commands.command(name= 'coinflip', aliases=["flip"], description="Flips a coin that either results in heads or tails.")
+    @rank("blacklist")
     async def coinflip(self, ctx):
 
         check = "✅"
@@ -127,6 +132,7 @@ class fun(commands.Cog, name='fun'):
                 await message.delete()
     
     @commands.command(description="User specific command")
+    @rank("blacklist")
     async def fran(self, ctx):
         if ctx.author.id==538700574426791946: #UserID of the person you want to be able to use the command
             response = random.choice([f"Hi Fran!", "Access granted!", "My calculations predict that you are indeed the person I am looking for. Hello, Fran."])
