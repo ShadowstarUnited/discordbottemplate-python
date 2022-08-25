@@ -5,3 +5,4 @@ motor
 dnspython
 nextcord-ext-menus
 aiohttp
+# This file is used to quickly install all your imports. Refer to the readme.md file for instructions.
