@@ -1,0 +1,7 @@
+nextcord
+jishaku==2.4.0
+logzero
+motor
+dnspython
+nextcord-ext-menus
+aiohttp
