@@ -24,6 +24,7 @@ Having another folder inside will break it. I know I suck at explaining, so here
 ## Features
 
 This bot features "cogs", which are separate .py files that contain commands.
+This bot uses MongoDB as a Database, using motor. This is required for the bot to function.
 
 | Cog Name | Description |
 | ------ | ------ |
