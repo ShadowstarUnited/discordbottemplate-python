@@ -16,6 +16,18 @@ class Owner(commands.Cog, name='owner'):
         await ctx.message.delete()
         await channel.send(content, allowed_mentions=nextcord.AllowedMentions(everyone=False))
 
+      
+    # In order for this command to work, you will need to: [sudo] npm install forever -g
+    # For Linux only.
+    # You will need to start up the bot initially using the command: forever start -c python3 bot.py
+    # Otherwise, this command will just make your bot commit die
+    @commands.command()
+    @commands.is_owner()
+    async def restart(self, ctx: commands.Context):
+        await ctx.send("I am now restarting, please hold.")
+        await self.bot.close()
+
+        
     @commands.command(aliases=['makeinvite'], description="A developer only command that creates an invite to a server when a Guild ID is provided.")
     @commands.is_owner()
     async def createinvite(self, ctx, ID : int):
