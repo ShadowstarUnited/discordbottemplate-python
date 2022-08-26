@@ -5,7 +5,6 @@ from logzero import logger
 from nextcord.ext import commands
 
 from database import BlacklistCol, UserCol
-from functions import find_user
 
 
 class Blacklist(commands.Cog):
