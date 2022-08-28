@@ -20,8 +20,8 @@ Having another folder inside will break it. I know I suck at explaining, so here
 ## How to Use:
 
 - Download Python from here: [https://www.python.org/]
-- After Python is correctly installed, open your terminal/cmd of choice and type `python3 -m pip install -r requirements.txt` (You may need to specify a path, in which case: `pip install -r /path/to/requirements.txt`)
-- Clone this repo and fill in the blanks. You will get errors if you do not replace every marked command.
+- After Python is correctly installed, clone this repo or download as zip.
+- Open your terminal/cmd of choice and type `python3 -m pip install -r requirements.txt` (You may need to specify a path, in which case: `pip install -r /path/to/requirements.txt`) and then fill in the blanks in all the cogs. You will get errors if you do not replace every marked command.
 - You will need to set up your own MongoDB (It's free). This template does not and will not show you how to do so. [https://www.mongodb.com/]
 - After everything is edited to your liking, you can run `bot.py`. For Linux, the command is `python3 bot.py`.
 
