@@ -51,6 +51,6 @@ This bot can be used to make any Discord Bot of your choice. It is completely op
 ## Credits
 
 - Developer & Repository Manager: **Shadowstar#7815**
-- Configs.py developer: **RPrime#2003**
+- Configs, guild logging, blacklisting, botinfo & sendembed developer: **RPrime#2003** - Special thanks
 - 8ball Command: **Ellie#0080**
 - Example in code: **Fran[She/They]#0666**
