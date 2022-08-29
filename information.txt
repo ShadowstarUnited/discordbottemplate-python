@@ -1,0 +1,24 @@
+This file is not needed for the bot to function and can be deleted without issue. This file is just an explanation of sorts.
+
+Python is a beginner programming language, which is why I chose to learn it specifically. That being said, not everyone is able to learn how to code very easily..
+Trust me, it took me a few years to get to where I am.. and I still consider myself a noob xD
+
+I created this bot template to share my knowledge with people around me; maybe introduce the world of Discord bot development to people who may not have been able to
+without guidance. A lot of the code in this template was donated by contributors of the project; of which have been credited accordingly in the readme.md file included
+in this template.
+
+I have tried my hardest to make something intuitive and as simple-to-use as possible. This template will change a log, so make sure to star this repo and stay up-to-date!
+
+If you have any issues with this template, feel free to reach out to me at Team Hydra Discord: https://discord.gg/zira
+
+My Discord username is Shadowstar#7815 please do NOT send me friend requests. You may ping me in Team Hydra's #other-support channel if you need help with this template.
+If you would like to become a contributor, please let me know :)
+
+-----CURRENT TODO LIST-----
+
+◉ Error Handling
+◉ Better Moderation Commands
+◉ More Slash Commands
+◉ Black formatting (for flake8)
+◉ MongoDB setup guide
+◉ Full template usage/setup guide
