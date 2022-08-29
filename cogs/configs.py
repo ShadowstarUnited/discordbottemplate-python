@@ -22,7 +22,7 @@ class Configs(commands.Cog):
         if ctx.invoked_subcommand is not None:
             return
 
-        default_perfix = "d!"
+        default_perfix = "!" # set this to be the default prefix
         x = await PrefixCol.find_one({"guild": f"{ctx.guild.id}"})
 
         if x is None:
